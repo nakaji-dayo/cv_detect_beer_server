@@ -7,6 +7,7 @@ var _ = require('lodash');
 
 exports.readImageAsync = promisify(cv.readImage);
 
+//多分native wrapperはpromisifyAll出ないないので全体的になんとかする必要がある
 cv.CascadeClassifier.prototype.detectMultiScaleAsync =
   function (im, args) {
     var extraArgs = Array.prototype.slice.call(arguments, 1);
